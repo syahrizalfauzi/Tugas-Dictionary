@@ -13,22 +13,23 @@ namespace Strukdat_Dictionary
 			Dictionary<string, int> d = new Dictionary<string, int>();
 
 			Console.WriteLine("Masukkan kalimat : ");
-			string input = Console.ReadLine();
-			string[] inputArray = input.Split(' ');
+			string kalimat = Console.ReadLine();
+			string[] arrayKata = kalimat.Split(' ');
 
-			foreach (string s in inputArray)
+			foreach (string kata in arrayKata)
 			{
-				int jumlah;
-				d.TryGetValue(s, out jumlah);
-				
-				if(!d.ContainsKey(s))
-					d.Add(s, jumlah+1);
+				if(!d.ContainsKey(kata))
+					d.Add(kata, 1);
 				else{
-					d[s] = jumlah + 1;
+					int jumlah = d[kata];
+					d[kata] = jumlah + 1;
 				}
 			}
-
-			d.ToList().ForEach(x => Console.WriteLine(x.Key + " : " + x.Value));
+			
+			foreach(string key in d.Keys)
+			{
+				Console.WriteLine(key + " : " + d[key]);
+			}
 
 			Console.ReadKey();
 		}
