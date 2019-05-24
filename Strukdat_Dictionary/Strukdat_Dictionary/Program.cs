@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Strukdat_Dictionary
 {
@@ -21,8 +18,7 @@ namespace Strukdat_Dictionary
 				if(!d.ContainsKey(kata))
 					d.Add(kata, 1);
 				else{
-					int jumlah = d[kata];
-					d[kata] = jumlah + 1;
+					d[kata] += 1;
 				}
 			}
 			
